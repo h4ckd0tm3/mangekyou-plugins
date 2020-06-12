@@ -112,7 +112,7 @@ class InstagramFinder(Finder):
                     self.logger.debug(f"Getting Picture for {link}")
                     profile_pic = self.getPicture(link, 0)
                     profile_list.append([link, profile_pic, 1.0])
-                break
+                #break
 
             return profile_list
         except Exception as e:
