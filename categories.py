@@ -68,3 +68,13 @@ class Finder(metaclass=abc.ABCMeta):
         Kills the active selenium session
         :return:
         """
+
+class Crawler(metaclass=abc.ABCMeta):
+
+    @abc.abstractmethod
+    def doLogin(self) -> bool:
+        """
+        Performs a Login to the desired Social Media Website.
+
+        :return: Returns True or False (True for a successful login)
+        """
