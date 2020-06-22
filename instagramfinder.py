@@ -110,9 +110,13 @@ class InstagramFinder(Finder):
 
                 if self.PROFILE_REGEX.match(link):
                     self.logger.debug(f"Getting Picture for {link}")
-                    profile_pic = self.getPicture(link, 0)
-                    profile_list.append([link, profile_pic, 1.0])
-                #break
+
+                    profile = dict()
+                    profile["url"] = link
+                    profile["picture"] = self.getPicture(link, 0)
+                    profile["association"] = 1.0
+
+                    profile_list.append(profile)
 
             return profile_list
         except Exception as e:

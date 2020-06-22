@@ -14,14 +14,13 @@ class Finder(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def getProfiles(self, first_name: str, last_name: str) -> List:
+    def getProfiles(self, name: str) -> List:
         """
         Performs a search on desired Social Media Website and returns possible matches.
 
-        :param first_name: First name of the person you are searching for.
-        :param last_name: Last name of the person you are searching for.
+        :param name: Name of the person you are searching for.
         :return: Returns a list of Social Media Profiles including URLs to the Profile Picture
-                 In following format: [link, profilepic, 1.0]
+                 In following format: {"url": link, "picture": profilepic, "association": 1.0}
         """
 
     @abc.abstractmethod
@@ -68,6 +67,7 @@ class Finder(metaclass=abc.ABCMeta):
         Kills the active selenium session
         :return: none
         """
+
 
 class Crawler(metaclass=abc.ABCMeta):
 
