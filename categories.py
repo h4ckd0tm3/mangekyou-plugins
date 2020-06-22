@@ -66,7 +66,7 @@ class Finder(metaclass=abc.ABCMeta):
     def kill(self):
         """
         Kills the active selenium session
-        :return:
+        :return: none
         """
 
 class Crawler(metaclass=abc.ABCMeta):
@@ -77,4 +77,39 @@ class Crawler(metaclass=abc.ABCMeta):
         Performs a Login to the desired Social Media Website.
 
         :return: Returns True or False (True for a successful login)
+        """
+
+    @abc.abstractmethod
+    def getInfo(self, url: str) -> Dict:
+        """
+        Performs a search on desired Social Media Website and returns possible matches.
+
+        :param url: URL of the Profile you want the info from.
+        :return: Returns a dict with the Information.
+        """
+
+    @abc.abstractmethod
+    def setCredentials(self, username: str, password: str):
+        """
+        Sets the Credentials for the Plugin to use.
+
+        :param username: Username
+        :param password: Password
+        :return: none
+        """
+
+    @abc.abstractmethod
+    def setLogger(self, logger: Logger):
+        """
+        Set's the Logger for the Plugin.
+
+        :param logger: Logger
+        :return: none
+        """
+
+    @abc.abstractmethod
+    def kill(self):
+        """
+        Kills the active selenium session
+        :return: none
         """
